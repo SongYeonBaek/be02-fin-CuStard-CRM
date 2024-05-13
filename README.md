@@ -4,27 +4,7 @@
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Flw4rG%2FbtsFY8R9biY%2Fw14QE1yBsQMYzm57iEbPc1%2Fimg.png" style="width: 90%;">
 </div>
 <br>
-
----
-
-## ‍🧑‍💻 Team
-<div style="display: flex; justify-content: center;">
-  <table>
-    <tbody>
-      <tr>
-        <td align="center"><a href="https://github.com/JungDongSeob" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/58664027?v=4" width="100px;" alt=""/><br /><sub><b> 🐯 정동섭</b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/kangmoonhye" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/122515113?v=4" width="100px;" alt=""/><br /><sub><b> 🐶 강문혜</b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/SongYeonBaek" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/78153440?v=4" width="100px;" alt=""/><br /><sub><b> 🐱 백송연</b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/Hyeon28" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/96675421?v=4" width="100px;" alt=""/><br /><sub><b> 🐧 이주현</b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/dohyun0408" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/149150345?v=4" width="100px;" alt=""/><br /><sub><b> 🐺 김도현 </b></sub></a><br /></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
 <br>
-
----
 
 ##  ⛓️ Stacks
 <h4> Backend</h4>
@@ -75,6 +55,11 @@
 <br>
 
 ---
+
+## 🎱 시스템 아키텍쳐
+<img src="https://github.com/beyond-sw-camp/be02-fin-CuStard-CRM/assets/78153440/d31310a1-8abf-4e2b-b5d8-55a5b93a0eff">
+<br>
+
 ## ⭐ Cus+ard 고객 관리 서비스
 
 <img src="https://github.com/beyond-sw-camp/be02-fin-CuStard-CRM/assets/78153440/bee89341-12b9-4993-9f00-b15a17b22bdc">
@@ -125,9 +110,6 @@
 </details>
 
 ## 🧩 운영 환경
- * 시스템 아키텍쳐
-<img src="https://github.com/beyond-sw-camp/be02-fin-CuStard-CRM/assets/78153440/d31310a1-8abf-4e2b-b5d8-55a5b93a0eff">
-<br>
 <br>
  * 소프트웨어 아키텍처
    <img src="https://github.com/beyond-sw-camp/be02-fin-CuStard-CRM/assets/78153440/6dedf3f8-f43e-496a-8a6a-616c9cde2a16">
