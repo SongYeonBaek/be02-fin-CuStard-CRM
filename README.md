@@ -46,7 +46,7 @@
 </div>
 
 ---
-## 📌 Custard 사이트 바로가기 
+## 📌 Custard 사이트 이용해보기
 🛍️ Cus+ard 쇼핑몰 사이트 <br>
 (www.custardshop.kro.kr/) <br>
 
@@ -59,6 +59,21 @@
 ## 🎱 시스템 아키텍쳐
 <img src="https://github.com/beyond-sw-camp/be02-fin-CuStard-CRM/assets/78153440/d31310a1-8abf-4e2b-b5d8-55a5b93a0eff">
 <br>
+
+## ‍🧑‍💻 Team
+<div style="display: flex; justify-content: center;">
+  <table>
+    <tbody>
+      <tr>
+        <td align="center"><a href="https://github.com/JungDongSeob" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/58664027?v=4" width="100px;" alt=""/><br /><sub><b> 🐯 정동섭</b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/kangmoonhye" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/122515113?v=4" width="100px;" alt=""/><br /><sub><b> 🐶 강문혜</b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/SongYeonBaek" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/78153440?v=4" width="100px;" alt=""/><br /><sub><b> 🐱 백송연</b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/Hyeon28" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/96675421?v=4" width="100px;" alt=""/><br /><sub><b> 🐧 이주현</b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/dohyun0408" style="text-decoration: none; color: lightgray;"><img src="https://avatars.githubusercontent.com/u/149150345?v=4" width="100px;" alt=""/><br /><sub><b> 🐺 김도현 </b></sub></a><br /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## ⭐ Cus+ard 고객 관리 서비스
 
