@@ -45,7 +45,7 @@
                         <td>{{ customer.idx }}</td>
                         <td>{{ customer.name }}</td>
                         <td>{{ customer.customerEmail }}</td>
-                        <td>{{ getLevelName(customer.level) }}</td>
+                        <td>{{ customer.level }}</td>
                         <td>{{ formatNumber(customer.totalAmount) }}원</td>
                         <td>{{ customer.lastLogin}}</td>
                       </tr>
@@ -69,8 +69,8 @@
 
 <script>
 import axios from 'axios';
-let backend = "http://192.168.0.33:80/api";
-// let backend = "http://localhost:8000";
+const backend = process.env.VUE_APP_ENDPOINT
+
 
 export default {
   data() {
@@ -83,11 +83,14 @@ export default {
   },
   methods: {
     fetchCustomers() {
-      let url = `${backend}/es/customer/${this.currentFilter}/${this.currentPage}`;
+      let url = `${backend}/customer/${this.currentFilter}/${this.currentPage}`;
+
       axios.get(url)
           .then(response => {
-            this.customers = response.data.result.content;
-            this.originalCustomers = [...response.data.result.content];
+            console.log(response);
+            this.customers = response.data.content;
+            this.originalCustomers = [...response.data.content];
+
           })
           .catch(error => {
             console.error('고객 정보를 불러오는 중 오류가 발생했습니다:', error);
@@ -108,9 +111,9 @@ export default {
     sortCustomers(type, value) {
       if (type === 'amount') {
         if (value === 'highToLow') {
-          this.changeFilter('amount/desc');
+          this.changeFilter('desc');
         } else if (value === 'lowToHigh') {
-          this.changeFilter('amount/asc');
+          this.changeFilter('asc');
         }
       } else if (type === 'grade' && value) {
         this.currentFilter = `level/${value}`;
@@ -122,10 +125,7 @@ export default {
     formatNumber(value) {
       return new Intl.NumberFormat().format(value);
     },
-    getLevelName(levelIndex) {
-      const levels = ['NEWBIE', 'BRONZE', 'SILVER', 'GOLD', 'PLATINUM', 'DIAMOND'];
-      return levels[levelIndex - 1];
-    },
+
   },
   mounted() {
     this.fetchCustomers();

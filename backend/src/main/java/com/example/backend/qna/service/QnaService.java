@@ -1,6 +1,6 @@
 package com.example.backend.qna.service;
 
-import com.example.backend.answer.model.entity.Answer;
+import com.example.backend.answer.model.Answer;
 import com.example.backend.answer.repository.AnswerRepository;
 import com.example.backend.common.BaseException;
 import com.example.backend.common.BaseResponse;

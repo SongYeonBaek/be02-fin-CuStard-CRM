@@ -1,7 +1,7 @@
 package com.example.backend.utils;
 
-
 import com.example.backend.customer.model.entity.Customer;
+import com.example.backend.admin.model.entity.Admin;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -56,6 +56,23 @@ public class TokenProvider {
 
         return token;
     }
+    // 관리자 토큰 생성
+    public static String generateAccessToken(Admin admin, Integer expiredTimeMs) {
+        Claims claims = Jwts.claims();
+        claims.put("username", admin.getAdminEmail());
+        claims.put("role", admin.getAuthority());
+        claims.put("idx", admin.getIdx());
+
+        String token = Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + expiredTimeMs))
+                .signWith(getSignKey(), SignatureAlgorithm.HS256)
+                .compact();
+
+        return token;
+    }
+
 
     public static Key getSignKey() {
 

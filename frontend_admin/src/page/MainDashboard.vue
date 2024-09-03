@@ -224,8 +224,7 @@ import axios from "axios";
 import { Chart, registerables } from 'chart.js'
 Chart.register(...registerables)
 
-let backend = "http://192.168.0.33:80/api";
-// let backend = "http://localhost:8000";
+const backend = process.env.VUE_APP_ENDPOINT
 
 export default {
   data() {
@@ -325,7 +324,7 @@ export default {
 
   methods: {
     createChart() {
-      axios.get(backend + '/es/dashboard/main')
+      axios.get(backend + '/dashboard/main')
           .then(response => {
             const result = response.data.result;
 
@@ -378,14 +377,14 @@ export default {
     },
 
     fetchqnalist(){ //1:1문의 내역
-      axios.get(backend + '/admin/qna/list')
+      axios.get(backend + '/qna/list')
           .then(response => {
             this.qnatitle = response.data.result.title;
           })
           .catch(error => console.error("방문자 수를 불러오는 데 실패했습니다.", error));
     },
     loadArticles() {
-      axios.get(backend + "/admin/qna/list")
+      axios.get(backend + "/qna/list")
           .then((response) => {
             this.qnasWaitings = response.data.result.filter(qna => !qna.answerContent).length;
             this.qnasWaiting = response.data.result.filter(qna => !qna.answerContent).slice(0, 5);
@@ -395,7 +394,7 @@ export default {
           });
     },
     goToArticle(idx) {
-      this.$router.push({path: `/qnaread${idx}`});
+      this.$router.push({path: `/qna/read${idx}`});
     },
     formatNumber(value) {
       return new Intl.NumberFormat().format(value);

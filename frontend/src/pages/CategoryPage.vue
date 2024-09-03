@@ -30,8 +30,8 @@ const products = ref([]);
 const route = useRoute();
 const router = useRouter();
 
-let backend = "http://192.168.0.31:80/api";
-// const backend = "http://localhost:8080";
+const backend = process.env.VUE_APP_ENDPOINT
+
 
 onMounted(async () => {
   const category = route.params.category;

@@ -29,8 +29,8 @@
 
 <script>
 import axios from 'axios';
-let backend = "http://192.168.0.31:80/api";
-// let backend = "http://localhost:8080";
+const backend = process.env.VUE_APP_ENDPOINT
+
 
 export default {
   data() {

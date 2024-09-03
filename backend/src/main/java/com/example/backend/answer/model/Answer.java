@@ -1,5 +1,4 @@
-package com.example.backend.answer.model.entity;
-
+package com.example.backend.answer.model;
 
 import com.example.backend.admin.model.entity.Admin;
 import com.example.backend.qna.model.entity.Qna;

@@ -138,8 +138,7 @@
 import axios from 'axios';
 import {Chart} from "chart.js";
 
-let backend = "http://192.168.0.33:80/api";
-// let backend = "http://localhost:8000";
+const backend = process.env.VUE_APP_ENDPOINT
 
 export default {
   data() {
@@ -256,7 +255,7 @@ export default {
   },
   methods: {
     loadArticles() {
-      axios.get(backend + "/admin/qna/list")
+      axios.get(backend + "/qna/list")
           .then((response) => {
             const customerId = Number(this.$route.params.customerId);
             this.qnasWaiting = response.data.result.filter(qna => qna.customerIdx === customerId && !qna.answerContent);
@@ -268,11 +267,11 @@ export default {
     },
 
     goToArticle(idx) {
-      this.$router.push({path: `/admin/qna/read/${idx}`});
+      this.$router.push({path: `/qna/read/${idx}`});
     },
 
     createChart() {
-      axios.get(backend + `/es/dashboard/customer/detail/${this.$route.params.customerId}`)
+      axios.get(backend + `/dashboard/customer/detail/${this.$route.params.customerId}`)
           .then(response => {
             response = response.data.result;
             this.customer = response.getCustomerReadRes;

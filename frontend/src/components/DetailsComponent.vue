@@ -46,9 +46,8 @@
 // 상세 페이지 컴포넌트의 스크립트 부분
 import axios from 'axios';
 import {useRoute} from "vue-router";
+const backend = process.env.VUE_APP_ENDPOINT
 
-let backend = "http://192.168.0.31:80/api";
-// let backend = "http://localhost:8080";
 
 export default {
   // props: {

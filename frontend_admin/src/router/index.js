@@ -18,7 +18,7 @@ const routes = [
     { path: '/coupon', component: CouponPage },
 
     { path: '/qnalist', component: QnaListPage },
-    { path: '/qnaread:idx', component: QnaListReadPage },
+    { path: '/qnaread/:idx', component: QnaListReadPage },
 
     { path: '/', component: LoginPage, meta: { hideNav: true }, name: 'login', },
 

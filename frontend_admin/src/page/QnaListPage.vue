@@ -70,8 +70,8 @@
 
 <script>
 import axios from 'axios';
-let backend = "http://192.168.0.33:80/api";
-// let backend = "http://localhost:8000";
+const backend = process.env.VUE_APP_ENDPOINT
+
 
 export default {
   data() {
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     loadArticles() {
-      axios.get(backend + "/admin/qna/list")
+      axios.get(backend + "/qna/list")
           .then((response) => {
             this.qnasWaiting = response.data.result.filter(qna => !qna.answerContent);
             this.qnasAnswered = response.data.result.filter(qna => qna.answerContent);
@@ -92,7 +92,7 @@ export default {
           });
     },
     goToArticle(idx) {
-      this.$router.push({path: `/qnaread${idx}`});
+      this.$router.push({path: `/qnaread/${idx}`});
     }
   },
   mounted() {
