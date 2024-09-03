@@ -6,18 +6,30 @@
           <div class="card col-lg-4 mx-auto">
             <div class="card-body px-5 py-5">
               <h3 class="card-title text-left mb-3">Login</h3>
-              <p style="color: #00a045; font-size: 10px">test01@test.com/qwer1234를 이용하시면 테스트 하실 수 있습니다. </p>
+              <p style="color: #00a045; font-size: 10px">test01@test.com/qwer1234를 이용하시면 테스트 하실 수 있습니다.</p>
               <form @submit.prevent="login">
                 <div class="form-group">
                   <label>Email *</label>
-                  <input type="text" id="email" class="form-control p_input" v-model="loginForm.adminEmail">
+                  <input
+                      type="text"
+                      id="email"
+                      class="form-control p_input"
+                      v-model="loginForm.adminEmail"
+                  />
                 </div>
                 <div class="form-group">
                   <label>Password *</label>
-                  <input type="password" id="password" class="form-control p_input" v-model="loginForm.adminPwd">
+                  <input
+                      type="password"
+                      id="password"
+                      class="form-control p_input"
+                      v-model="loginForm.adminPwd"
+                  />
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary btn-block enter-btn" @click="login">Login</button>
+                  <button type="button" class="btn btn-primary btn-block enter-btn" @click="login">
+                    Login
+                  </button>
                 </div>
               </form>
             </div>
@@ -32,16 +44,17 @@
 </template>
 
 <script>
-import {useAdminStore} from "@/stores/useAdminStore";
+import { useAdminStore } from "@/stores/useAdminStore";
 
 export default {
   data() {
     return {
+      // loginForm의 초기값을 설정하여 로그인 페이지에 접속했을 때 자동으로 값이 입력되도록 함
       loginForm: {
-        adminEmail: '',
-        adminPwd: '',
+        adminEmail: "test01@test.com",
+        adminPwd: "qwer1234",
       },
-      isLoading: false // 로딩 상태를 추적하기 위한 변수
+      isLoading: false, // 로딩 상태를 추적하기 위한 변수
     };
   },
   methods: {
@@ -53,8 +66,8 @@ export default {
         const result = await adminStore.login(this.loginForm);
         if (result && result.accessToken) {
           // 로그인 성공 처리
-          localStorage.setItem('adminIdx', result.adminIdx);
-          localStorage.setItem('accessToken', "Bearer " + result.accessToken);
+          localStorage.setItem("adminIdx", result.adminIdx);
+          localStorage.setItem("accessToken", "Bearer " + result.accessToken);
           this.$router.push("/main");
         } else {
           // 결과에 accessToken이 없으면 로그인 실패로 간주
@@ -66,7 +79,7 @@ export default {
         this.isLoading = false; // 로딩 상태 종료
       }
     },
-  }
+  },
 };
 </script>
 

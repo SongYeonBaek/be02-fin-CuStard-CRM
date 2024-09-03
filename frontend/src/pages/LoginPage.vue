@@ -5,7 +5,15 @@
         <img src="../assets/custard-logo.png" alt="커스터드 로고">
         <div class="text">로그인</div>
       </div>
+      <!-- 개발자의 인사말 추가 -->
+      <p class="dev-message" style="background-color: linen; border-radius: 15px; padding: 10px;" >
+        아래 계정으로 편하게 쇼핑몰을 자유롭게 이용해보실 수 있습니다. <br>
+        회원가입 후 로그인을 진행해서 쇼핑하셔도 좋습니다. <br>  그럼 즐거운 쇼핑 되세요!
+        <br> <br>
+        - From. 백송연 | Baeksongyeon <span>👩‍💻❤️</span>
+      </p>
       <form id="loginForm" @submit.prevent="login">
+        <!-- 기본 값으로 자동 입력 -->
         <input type="text" placeholder="이메일" id="email" v-model="loginForm.customerEmail" required>
         <input type="password" placeholder="비밀번호" id="password" v-model="loginForm.customerPwd" required>
         <br><br>
@@ -14,51 +22,50 @@
       <br>
       <p class="memeber">회원이 아니신가요?</p>
       <a href="./signup">회원가입</a>
-
     </div>
   </div>
 </template>
 
 <script>
-import {useCustomerStore} from "@/stores/useCustomerStore";
+import { useCustomerStore } from "@/stores/useCustomerStore";
 import axios from "axios";
 
 export default {
   data() {
     return {
+      // loginForm의 초기값을 설정하여 로그인 페이지에 접속했을 때 자동으로 값이 입력되도록 함
       loginForm: {
-        customerEmail: '',
-        customerPwd: '',
+        customerEmail: "test01@test.com",
+        customerPwd: "qwer1234",
       },
       customerEmail: '',
     };
   },
   methods: {
-    reqNotificationPermission(){
-      if ('Notification' in window){ //윈도우 창에서 알림
-        Notification.requestPermission().then(perm =>{
-          if(perm === "granted" && localStorage.getItem('accessToken')) { //로컬 스토리지에 토큰이 있을 때와 권한을 허용했을 때만 알림이 푸시되게 함
+    reqNotificationPermission() {
+      if ('Notification' in window) { //윈도우 창에서 알림
+        Notification.requestPermission().then(perm => {
+          if (perm === "granted" && localStorage.getItem('accessToken')) { //로컬 스토리지에 토큰이 있을 때와 권한을 허용했을 때만 알림이 푸시되게 함
             console.log("알림 허용")
-            new Notification("오랜만에 접속하셨네요🥹",{
+            new Notification("오랜만에 접속하셨네요🥹", {
               body: "고객님을 위한 깜짝 쿠폰이 있어요🎁",
               icon: "https://github.com/beyond-sw-camp/be02-fin-CuStard-CRM/assets/122515113/2a07a238-c33b-4913-be49-3aadb1f7b548",
             });
-            localStorage.setItem('notified' , 'true');
-          }else{
+            localStorage.setItem('notified', 'true');
+          } else {
             console.log("알림이 차단됨")
           }
         });
       }
     },
     async login() {
-      // const backend = "http://localhost:8080"
-      let backend = "http://192.168.0.31:80/api";
+      const backend = process.env.VUE_APP_ENDPOINT
+
       const customerEmail = {
-        customerEmail : this.loginForm.customerEmail
+        customerEmail: this.loginForm.customerEmail
       }
       console.log(customerEmail);
-      // const customerEmail = toRaw(this.loginForm.customerEmail)
-      // axios.get(backend + '/coupon/pushNoti/'+this.customerEmail)
+
       let couponPush = await axios.post(
           backend + "/coupon/pushnoti",
           customerEmail
@@ -81,7 +88,7 @@ export default {
 
         this.$router.push("/");
 
-        if(couponPush) {
+        if (couponPush) {
           this.reqNotificationPermission();
         }
 
@@ -118,9 +125,6 @@ export default {
   }
 };
 </script>
-
-
-
 
 <style scoped>
 * {
@@ -170,6 +174,13 @@ body {
   color: #494949;
 }
 
+.dev-message {
+  font-size: 12px;
+  color: #696969;
+  margin: 20px 0;
+  text-align: center;
+  line-height: 1.4;
+}
 
 .login-container h2 {
   color: #333;
