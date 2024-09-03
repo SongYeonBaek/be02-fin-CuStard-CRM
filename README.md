@@ -54,7 +54,7 @@
 (www.custardshop.kro.kr/) <br>
 
 📊 Cus+ard 고객 관리 사이트 <br>
-(http://www.custardadmin.kro.kr/)
+(www.custardcrm.kro.kr/)
 <br>
 
 ---
